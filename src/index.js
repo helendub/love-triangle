@@ -8,12 +8,12 @@ module.exports = function getLoveTrianglesCount(preferences = []) {
     let length = preferences.length; 
     let count = 0;  
       for (let i = 0; i<length; i++) { 
-        let n = i+1; 
+       
         let lover31 = preferences[i]; 
         let lover12 = preferences[lover31-1]; 
-        let lover23 = preferences[lover12-1]; 
-
-        if (n==lover23)  {count++;}
+        if (lover12 != i+1) {
+          let lover23 = preferences[lover12-1];  
+          if (i+1==lover23)  {count++;} }
       }
-   return Math.floor(count/3);
+   return count/3;
 };
